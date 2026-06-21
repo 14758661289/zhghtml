@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>国宝风采 - 中华生灵·探索站</title>
+    <!-- 关键：引入原本的 CSS 文件，保持风格一致 -->
+    <link rel="stylesheet" href="css/wdnmd.css">
+    <style>
+        /* 这里可以写一点专门给这个页面的微调样式 */
+        .animal-grid {
+            margin-top: 40px;
+        }
+        .filter-btns {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .filter-btn {
+            padding: 8px 20px;
+            border: 1px solid #ddd;
+            background: white;
+            cursor: pointer;
+            border-radius: 20px;
+            margin: 0 5px;
+            transition: all 0.3s;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background-color: #27ae60;
+            color: white;
+            border-color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. 头部导航 (保持和首页一致) -->
+    <header class="site-header">
+        <div class="logo">🐼 中华生灵·探索站</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">返回首页</a></li> <!-- 这里改回首页 -->
+                <li><a href="native.html" style="color:#27ae60;">国宝风采</a></li>
+                <li><a href="index.html#invasive">生态警示</a></li>
+                <li><a href="index.html#contact">加入我们</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 2. 页面标题区 -->
+    <section class="hero-section" style="height: 30vh; background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/banner-native.jpg');">
+        <div class="hero-content">
+            <h1>华夏瑰宝 · 本土特有物种</h1>
+            <p>守护自然精灵，传承生态文明</p>
+        </div>
+    </section>
+
+    <!-- 3. 筛选按钮 (JS交互用) -->
+    <div class="container filter-btns">
+        <button class="filter-btn active" onclick="filterAnimals('all')">全部</button>
+        <button class="filter-btn" onclick="filterAnimals('mammal')">哺乳类</button>
+        <button class="filter-btn" onclick="filterAnimals('bird')">鸟类</button>
+        <button class="filter-btn" onclick="filterAnimals('other')">其他</button>
+    </div>
+
+    <!-- 4. 动物展示区 (Grid布局 + 卡片) -->
+    <section class="container">
+        <div class="animal-grid" id="animalContainer">
+            <!-- 卡片将由 JS 自动生成，或者你可以手动写在这里 -->
+            <!-- 下面是一个示例卡片结构，JS会填充它 -->
+        </div>
+    </section>
+
+    <!-- 底部 (保持和首页一致) -->
+    <footer>
+        <p>&copy; 2026 中华生灵·探索站 | HTML5 期末课程作业</p>
+    </footer>
+
+    <!-- 引入原本的 JS 和 本页面的专用 JS -->
+    <script src="js/main.js"></script>
+    <script src="js/native.js"></script>
+</body>
+</html>

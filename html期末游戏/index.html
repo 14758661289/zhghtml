@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中华生灵·探索站 - 守护自然</title>
+    <!-- 引入 CSS -->
+    <link rel="stylesheet" href="css/wdnmd.css">
+</head>
+<body>
+
+    <!-- 1. 头部导航 (Flexbox 布局) -->
+    <header class="site-header">
+        <div class="logo">🐼 中华生灵·探索站</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home">首页</a></li>
+                <li><a href="native.html">国宝风采</a></li>
+                <li><a href="#invasive">生态警示</a></li>
+                <li><a href="#contact">加入我们</a></li>
+                <li><a href="video.html" target="_blank">国土生灵纪录片</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 2. 首屏展示区 (Hero Section) -->
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <h1>探索中国特有珍稀动物</h1>
+            <p>了解本土精灵，警惕外来入侵，共建生态平衡。</p>
+            <a href="#native" class="btn">开始探索</a>
+        </div>
+    </section>
+
+    <!-- 3. 内容区 A：中国特有珍稀动物 (Grid 布局 + 图片悬停特效) -->
+    <section id="native" class="container">
+        <h2 class="section-title">🇨🇳 华夏瑰宝：特有物种</h2>
+        <div class="animal-grid">
+
+            <div class="card">
+                <img src="img/panda.png" alt="大熊猫" class="zoom-img">
+                <div class="card-info">
+                    <h3>大熊猫</h3>
+                    <p>食肉目熊科，被誉为“活化石”。主要栖息在四川、陕西和甘肃的山区。</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="img/monkey.jpg" alt="川金丝猴" class="zoom-img">
+                <div class="card-info">
+                    <h3>川金丝猴</h3>
+                    <p>灵长目猴科，毛色金黄，鼻孔向上仰。群居生活，是中国特有的珍贵动物。</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="img/fox.jpg" alt="藏狐" class="zoom-img">
+                <div class="card-info">
+                    <h3>藏狐</h3>
+                    <p>犬科动物，拥有标志性的“方脸”和淡定表情。主要生活在青藏高原。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="invasive" class="container bg-light">
+        <h2 class="section-title warning-text">⚠️ 生态警示：外来入侵物种</h2>
+        <p class="intro-text">以下动物并非中国原产，它们的引入对本土生态造成了严重破坏：</p>
+
+        <div class="table-responsive">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>物种名称</th>
+                        <th>原产地</th>
+                        <th>危害程度</th>
+                        <th>主要危害描述</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+
+                        <td>
+
+                            <span class="species-link"
+                                data-name="红火蚁"
+                                data-img="img/mayi.jpg"
+                                data-desc="红火蚁是蚂蚁的一种，是严重的农业害虫。它们攻击性强，叮咬人畜，破坏农作物根系，导致本土蚂蚁灭绝，甚至可能损坏电子设备。">
+                                 红火蚁
+                            </span>
+                        </td>
+                        <td>南美洲</td>
+                        <td><span class="badge high">极高</span></td>
+                        <td>攻击性强，叮咬人畜...</td>
+                    </tr>
+                    <tr>
+                       <td>
+                            <span class="species-link"
+                                  data-name="巴西龟"
+                                  data-img="img/baxigui.jpg"
+                                  data-desc="巴西龟，又名红耳龟。它们繁殖能力极强，会抢夺本土龟类的食物和晒台，携带沙门氏菌，严重破坏水域生态链，被列为全球最危险的100个外来入侵物种之一。">
+                                  巴西龟
+                            </span>
+                       </td>
+                        <td>北美洲</td>
+                        <td><span class="badge medium">高</span></td>
+                        <td>抢夺本土龟类食物...</td>
+                    </tr>
+
+                    <tr>
+                        <tr>
+                            <td>
+
+                                <span class="species-link"
+                                    data-name="福寿螺"
+                                    data-img="img/luo.jpg"
+                                    data-desc="福寿螺外观与田螺极其相似，但危害巨大。它们主要啃食水稻等水生作物，造成农业减产。同时，它是广州管圆线虫的中间宿主，生吃或食用未煮熟的福寿螺极易引发脑膜炎等严重疾病。">
+                                    福寿螺
+                                </span>
+                            </td>
+                            <td>南美洲</td>
+                            <td><span class="badge high">极高</span></td>
+                            <td>啃食水稻等水生作物，是广州管圆线虫的中间宿主。</td>
+                        </tr>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+
+    <!-- 表单 Form考点 -->
+    <section id="contact" class="container">
+        <h2 class="section-title">📝 守护自然承诺书</h2>
+        <div class="form-wrapper">
+            <form id="pledgeForm">
+                <div class="form-group">
+                    <label for="username">你的名字：</label>
+                    <input type="text" id="username" placeholder="请输入姓名" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">电子邮箱：</label>
+                    <input type="email" id="email" placeholder="example@mail.com">
+                </div>
+
+                <div class="form-group">
+                    <label>你关注的领域：</label>
+                    <select id="interest">
+                        <option value="protect">珍稀动物保护</option>
+                        <option value="invasive">入侵物种防治</option>
+                        <option value="volunteer">志愿者活动</option>
+                    </select>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="agree" required>
+                    <label for="agree">我承诺不购买、不放生外来入侵物种。</label>
+                </div>
+
+                <button type="submit" class="btn-submit">提交承诺</button>
+                <div id="successMessage" style="display: none; color: green; margin-top: 10px; text-align: center;">
+                        ✅ 提交成功！感谢你的承诺。
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- 底部版权 -->
+    <footer>
+        <p>
+            <span>&copy; 2026 中华生灵·探索站 | HTML5 期末课程作业</span>
+            &nbsp;|&nbsp;
+            <a href="https://species.sciencereading.cn/home" target="_blank" class="footer-link">
+                友情链接：中国生物志库
+            </a>
+
+            <a href="https://www.birdreport.cn/" target="_blank" class="footer-link">
+                观鸟记录中心
+            </a>
+        </p>
+        <p>
+            <a>
+                25人工智能1班 张煇光 p20250306051
+            </a>
+        </p>
+    </footer>
+
+
+    <!-- 模态框背景遮罩 -->
+<div id="infoModal" class="modal-overlay">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+
+        <div class="modal-body-flex">
+            <div class="modal-left">
+                <img id="modalImg" src="" alt="物种图片">
+            </div>
+
+            <div class="modal-right">
+                <h3 id="modalTitle">标题</h3>
+                <p id="modalDesc">这里是详细介绍...</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!-- 引入 JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>
