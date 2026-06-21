@@ -1,0 +1,332 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Microsoft YaHei', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.bg-light { background-color: #fff; }
+.warning-text { color: #d32f2f; }
+
+ /* Flex 布局 */
+.site-header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+/* 考核点：鼠标悬停变色 */
+.nav-links a:hover {
+    color: #27ae60;
+}
+
+/* --- 首屏  --- */
+.hero-section {
+    height: 60vh;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../img/haibao.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-content h1 { font-size: 3rem; margin-bottom: 10px; }
+.btn {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: #27ae60;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px; /* 考核点：圆角 */
+    margin-top: 20px;
+    transition: transform 0.2s;
+}
+.btn:hover { transform: scale(1.05); }
+
+/* --- 3. 动物卡片 (Grid 布局 + 阴影 + 动画 - 考核点) --- */
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    border-bottom: 3px solid #27ae60;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.animal-grid {
+    display: grid; /* Grid 布局 */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: white;
+    border-radius: 10px; /* 圆角 */
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* 考核点：阴影 */
+    transition: transform 0.3s ease;
+}
+
+/* 考核点：图片悬停放大 */
+.zoom-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card:hover .zoom-img {
+    transform: scale(1.1); /* 放大效果 */
+}
+
+.card-info { padding: 20px; }
+
+/* --- 4. 表格样式 (Table - 考核点) --- */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.data-table th, .data-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.data-table th { background-color: #ecf0f1; color: #2c3e50; }
+
+.badge {
+    padding: 5px 10px;
+    border-radius: 20px;
+    color: white;
+    font-size: 0.8rem;
+}
+.badge.high { background-color: #e74c3c; }
+.badge.medium { background-color: #f39c12; }
+
+/* --- 5. 表单样式 (Form - 考核点) --- */
+.form-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 8px; font-weight: bold; }
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.checkbox-group { display: flex; align-items: center; gap: 10px; }
+.checkbox-group input { width: auto; }
+
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+.btn-submit:hover { background-color: #34495e; }
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #2c3e50;
+    color: #bdc3c7;
+    margin-top: 50px;
+}
+/* 修改你的 CSS */
+.zoomable {
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    /* 关键：给基础状态也加一个相对定位，防止层级计算错误 */
+    position: relative;
+}
+
+.zoomed {
+    transform: scale(1.5);
+    /* 关键：设置一个很高的层级，确保它浮在所有内容之上 */
+    z-index: 9999;
+    position: relative;
+    /* 可选：加个阴影让它看起来更立体，减少边缘闪烁感 */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+
+/* 1. 外层卡片：保持静止，限制溢出 */
+.animal-card {
+    width: 300px; /* 或者是你设定的宽度 */
+    height: 400px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden; /* 【关键】这一行防止图片放大后跑出来遮挡鼠标 */
+    transition: transform 0.3s; /* 可选：如果你想让整个卡片轻微浮起 */
+}
+
+/* 2. 图片容器：占满卡片 */
+.image-wrapper {
+    width: 100%;
+    height: 200px; /* 图片区域的高度 */
+    overflow: hidden; /* 双重保险 */
+}
+
+/* 3. 图片本身：设置过渡效果 */
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease; /* 平滑过渡 */
+}
+
+/* 4. 交互效果：鼠标悬停在【卡片】上时，缩放【图片】 */
+.animal-card:hover .image-wrapper img {
+    transform: scale(1.2); /* 放大 1.2 倍，不要太大 */
+}
+
+
+
+
+
+/* 1. 表格里的名字样式，让它看起来像可点击的 */
+.species-link {
+    color: #d32f2f; /* 红色字体 */
+    font-weight: bold;
+    cursor: pointer; /* 鼠标放上去变小手 */
+    text-decoration: underline;
+}
+
+/* 2. 模态框遮罩层 (默认隐藏) */
+.modal-overlay {
+    display: none; /* 关键：默认不显示 */
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* 半透明黑色背景 */
+    align-items: center;
+    justify-content: center;
+}
+
+/* 3. 模态框白色卡片 */
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 700px; /* 最大宽度 */
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    animation: fadeIn 0.3s; /* 简单的淡入动画 */
+}
+
+/* 4. 内部左右布局 (Flexbox) */
+.modal-body-flex {
+    display: flex;
+    gap: 20px; /* 图片和文字的间距 */
+}
+
+.modal-left img {
+    width: 250px; /* 固定图片宽度 */
+    height: auto;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.modal-right h3 {
+    margin-top: 0;
+    color: #333;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.modal-right p {
+    line-height: 1.6;
+    color: #666;
+}
+
+/* 5. 关闭按钮 */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+}
+.close-btn:hover {
+    color: #000;
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(-20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+
+
+
+/* 修饰footer的跳转链接 */
+.footer-link {
+    color: #ffffff; /* 白色 */
+    text-decoration: none; /* 去掉下划线 */
+    margin-left: 10px; /* 左边留点空隙 */
+}
+
+.footer-link:hover {
+    color: #4CAF50; /* 鼠标放上去变绿色 */
+    text-decoration: underline; /* 显示下划线 */
+}
